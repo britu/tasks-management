@@ -1,65 +1,21 @@
- {
-      id: 1,
-      text: "Doctors Appointment",
-      day: "Feb 5th at 2:30pm",
-      reminder: true,
-    },
-    {
-      id: 2,
-      text: "Meeting at School",
-      day: "Feb 6th at 1:30pm",
-      reminder: true,
-    },
-    {
-      id: 3,
-      text: "Food Shopping",
-      day: "Feb 5th at 2:30pm",
-      reminder: false,
-    },
 
+#Standard defination
+```
+it's a javascript library for building user interfaces. With React you can build Single page application called SPA. Where you have a single html page and then all of routing and other stuff is done through react which complies to JavaScript bundle that's loaded by the browser so its makes really fast and interactive interfaces
+```
+##To Start this Project
 
-import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
-import Button from "./Button";
+### Start local server
 
-const TaskDetails = () => {
-  const [task, setTask] = useState({});
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+```
+Run the local server using npm run server
+```
 
-  const params = useParams();
-  const navigate = useNavigate();
-  const { pathname } = useLocation;
-
-  useEffect(() => {
-    const fetchTask = async () => {
-      const res = await fetch(`http://localhost:5000/tasks/${params.id}`);
-      const data = await res.json();
-      setTask(data);
-      setLoading(false);
-
-      if (res.status === 404) {
-        navigate("/");
-      }
-    };
-
-    fetchTask();
-  }, []);
-
-  return (
-    <div className="task">
-      <p>{pathname}</p>
-      <h3>{task.text}</h3>
-      <p>{task.day}</p>
-      <Button
-        color="orange"
-        title="Go Back"
-        onClick={() => {
-          console.log('I am clicked')
-        }}
-      />
-    </div>
-  );
-};
-
-export default TaskDetails;
+### To Run the develoment server
+```
+Npm start
+```
+### To run static asset depoyment
+```
+npm build
+```
