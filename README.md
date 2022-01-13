@@ -8,7 +8,7 @@ it's a javascript library for building user interfaces. With React you can build
 ### Start local server
 
 ```
-Run the local server using npm run server
+npm run server
 ```
 
 ### To Run the develoment server
